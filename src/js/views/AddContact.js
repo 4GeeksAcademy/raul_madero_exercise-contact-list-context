@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 import { Context } from "../store/appContext.js";
 
 export const AddContact = () => {
+	const { store, actions } = useContext(Context);
 	const [full_name, setFull_name] = useState("");
 	const [email, setEmail] = useState("");
 	const [address, setAddress] = useState("");
 	const [phone, setPhone] = useState("");
-	const { store, actions } = useContext(Context);
-	function guardar(e) {
-		console.log("desde guardar");
+	function guardar(e, id = null) {
 		e.preventDefault();
-		actions.createContact(full_name, email, address, phone);
+		actions.createContact(contactId, full_name, email, address, phone);
 	}
 	return (
 		<div className="container">
