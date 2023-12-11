@@ -10,6 +10,7 @@ export const AddContact = () => {
 	const [email, setEmail] = useState("");
 	const [address, setAddress] = useState("");
 	const [phone, setPhone] = useState("");
+	const [contactId, setContactId] = useState("");
 	function guardar(e, id = null) {
 		e.preventDefault();
 		actions.createContact(contactId, full_name, email, address, phone);

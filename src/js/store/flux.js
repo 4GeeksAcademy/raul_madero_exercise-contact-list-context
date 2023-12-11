@@ -16,6 +16,7 @@ const getState = ({ getStore, setStore }) => {
 					address: address,
 					phone: phone
 				};
+				console.log(datos);
 				fetch(
 					id
 						? `https://playground.4geeks.com/apis/fake/contact/${id}`
