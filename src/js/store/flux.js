@@ -9,14 +9,13 @@ const getState = ({ getStore, setStore }) => {
 			// Remember to use the scope: scope.state.store & scope.setState()
 			createContact: (id = null, nombre, email, address, phone) => {
 				let datos = {
-					id: id,
 					full_name: nombre,
 					email: email,
 					agenda_slug: "raul",
 					address: address,
 					phone: phone
 				};
-				console.log(datos);
+				console.log(id);
 				fetch(
 					id
 						? `https://playground.4geeks.com/apis/fake/contact/${id}`
@@ -47,6 +46,7 @@ const getState = ({ getStore, setStore }) => {
 				} catch (error) {
 					console.log(error);
 				}
+				location.reload();
 			}
 		}
 	};

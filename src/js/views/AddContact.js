@@ -10,10 +10,22 @@ export const AddContact = () => {
 	const [email, setEmail] = useState("");
 	const [address, setAddress] = useState("");
 	const [phone, setPhone] = useState("");
-	const [contactId, setContactId] = useState("");
-	function guardar(e, id = null) {
+	const [contactId, setContactId] = useState(null);
+	const params = window.location.search;
+	const urlParams = new URLSearchParams(params);
+	const id = urlParams.get("id");
+	if (id) {
+		useEffect(() => {
+			setContactId(id);
+		}, [actions.createContact]);
+	}
+	function guardar(e) {
 		e.preventDefault();
 		actions.createContact(contactId, full_name, email, address, phone);
+		setFull_name("");
+		setEmail("");
+		setPhone("");
+		setAddress("");
 	}
 	return (
 		<div className="container">
